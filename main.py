@@ -205,18 +205,6 @@ def ipinfo(ip_address):
     except Exception as e:
         return f"Errore nella richiesta bohh: {e}"
 
-ip_address = input("Inserisci un indirizzo IP acer sigma: ")
-info = ipinfo(ip_address)
-
-if isinstance(info, dict):
-    print("Info su IP sigma:")
-    for key, value in info.items():
-        print(f"{key}: {value}")
-else:
-    print(info)
-input("")
-
-
 def info():
     print(Fore.BLUE + "zGhiandaz isn't beautiful ha ha aha haxor")
     print(Fore.LIGHTCYAN_EX + "JOIN NOW")
@@ -233,10 +221,17 @@ elif opt == 4:
 elif opt == 5:
     proxygen()
 elif opt == 6:
-    ipinfo()
+    ip_address = Write.Input("Enter an IP address to lookup: ", Colors.blue_to_white)
+    info = ipinfo(ip_address)
+    if isinstance(info, dict):
+        print("Info su IP sigma:")
+        for key, value in info.items():
+            print(f"{key}: {value}")
+    else:
+        print(info)
 elif opt == 7:
     info()
 else:
-    print(Fore.LIGHTRED_EX + "Coglioneeeeee, scegli tra 1, 2, 3, 4, 5 o 6.")
+    print(Fore.LIGHTRED_EX + "Input non valido")
 
-input(Fore.LIGHTRED_EX + "\nPress Enter to exit the program...")
+input("")
